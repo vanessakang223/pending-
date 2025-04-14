@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Windows 98 Profile Approval</title>
+
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        opacity: 0;
+        background-color: black;
+        cursor: url('./Img/cursor.svg') 16 16, auto;
+        transition: opacity 1.5s ease-in-out;
+      }
+
+      body.fade-in {
+        opacity: 1;
+        background-color: #008080; /* or your intended background */
+      }
+
+      .full-width-top {
+        width: 100%;
+        align-self: flex-start;
+        margin-bottom: 1em;
+      }
+    </style>
+    
+    <!-- Custom Script -->
+    <script defer src="script.js"></script>
+
+</head>
+<body>
+    <div class="vignette-overlay"></div>
+    <p class="desktop-text">
+        This system is the property of United Systems Corp. All activity is monitored and recorded.
+        <br />Ensure all profile reviews comply with company ethical guidelines.
+    </p>
+
+    <!-- SYSTEM INTRO POPUP -->
+    <div id="system-intro-popup" class="welcome-popup" style="display: none;">
+        <div class="window" id="intro-page1">
+            <div class="title-bar">
+                <div class="title-bar-text">Welcome</div>
+            </div>
+            <div class="window-body">
+              
+                    <h4>Welcome to United Systems!</h4>
+                    <p style="font-size: 13px;">Your decisions shape the safety of the digital world.</p>
+                    <ul class="tree-view">
+                        <div style="display: flex; justify-content: center; align-items: center; margin: 12px 0;">
+                          <img src="Multimedia/globe turn new.gif" style="width: 106px; height: 100px; filter: grayscale(100%) brightness(8);" />
+                        </div>
+                    </ul>
+                        <p style="font-size: 13px; line-height: 1.5;">
+                            We're counting on your insight to guide us through a critical review process. 
+
+                          </p>
+                <div class="footer" style="text-align:right; margin-top: 1em;">
+                    <button onclick="showIntroPage2()">CONTINUE</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="window" id="intro-page2" style="display:none;">
+            <div class="title-bar">
+                <div class="title-bar-text">Review Guidelines</div>
+            </div>
+            <div class="window-body">
+                <p style="font-size: 13px; line-height: 1.5;">
+                    During your 5-day trial period, start each day by checking your inbox for updates. Then, review user profiles and decide who is approved to remain online.
+                Gain credits for each correct decision.Lose credits for every mistake.
+
+                <br>
+                <br>
+                Reach <strong>1,500 credits</strong> to qualify for full-time employment at United Systems.
+                </p><br>
+                
+                <div class="field-row-stacked">
+                    <label for="text18"> To continue, type <strong>“ACKNOWLEDGED”</strong> in the field below:</label>
+                    <input id="text18" type="text" />
+                </div>
+                <div class="footer" style="text-align:right; margin-top: 1em;">
+                    <button onclick="showIntroPage1()">BACK</button>
+                    <button onclick="startExperience()">BEGIN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MAIN CONTAINER -->
+    <div class="main-container">
+        <div class="top-section">
+            <strong>profile review system_</strong>
+        </div>
+
+        <div class="tools-bar">
+            <button class="question-button"></button>
+            <button class="question-button"></button>
+            <button class="question-button"></button>
+            <button class="question-button"></button>
+            <button class="question-button"></button>
+            <div class="button-row">
+                <div class="long-button window"></div>
+            </div>
+            <button class="question-button">X</button>
+          
+        </div>
+
+        <div class="profiles-content-wrapper">
+            <div class="window-body">
+                <!-- <ul class="tree-view"> -->
+                <div class="profile-section">
+                    <div class="profile-info">
+                        <img id="profile-pic" src="https://placekitten.com/100/100" alt="Profile Picture" class="profile-pic" />
+                        <div class="profile-summary">
+                            <p><strong><span id="profile-name">Loading...</span></strong></p>
+                            <div class="loc"><p><strong>Location:</strong> <span id="profile-location">Loading...</span></p></div>
+                            <p><strong>Email:</strong> <span id="profile-email">Loading...</span></p>
+                            <p><strong>Occupation:</strong> <span id="profile-job">Loading...</span></p>
+                        </div>
+                    </div>
+
+                <div class="right-info">
+                    <fieldset class="footprint-fieldset full-width-top">
+                        <legend>DIGITAL FOOTPRINT</legend>
+                        <ul id="profile-footprint"></ul>
+                    </fieldset>
+                    <fieldset class="attachments-fieldset">
+                        <legend>ATTACHMENTS</legend>
+                        <ul id="profile-attachments"></ul>
+                    </fieldset>
+                </div>
+            </div>
+            </ul>
+            </div>
+
+            <div class="button-container">
+                <button class="approve-btn"><strong>O</strong></button>
+                <button class="deny-btn"><strong>X</strong></button>
+            </div>
+
+
+            <div class="score-section">
+                <fieldset>
+                    <legend>CREDITS</legend>
+                    <span id="points">0/1500</span> 
+                </fieldset>
+            </div>
+
+            <div class="log-section">
+                <fieldset>
+                    <legend>ACTIVITY LOG</legend>
+                 
+                    <ul id="log"></ul>
+                </fieldset>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="distort-overlay"></div>
+
+
+    <!-- Bottom Bar -->
+    <div class="placeholder"></div>
+    <div class="bottom-bar">
+        <button onclick="restoreMainContainer()"><img src="Img/house.png" class="no-margin" /></button>
+         <button onclick="openMailWindow()"><img src="Img/mail.png" class="no-margin" /></button>
+       
+        <!-- <button onclick="openMailWindow()"><img src="Img/mail.png" class="no-margin"/></button> -->
+        <!-- <button><img src="Img/notes.png" class="no-margin"/></button> -->
+        <div class="right-section">
+            <!-- <input type="text" class="points-input input" value="0/1500" readonly /> -->
+        </div>
+        <button disabled>Monday 05-01-2050</button>
+    </div>
+
+<!-- Black overlay -->
+<!-- Black (or gray) overlay -->
+<div class="modal-overlay" id="overlay" style="display: none;"></div>
+
+    <div id="mailWindow" class="window mail-window">
+        <div class="title-bar">
+    
+          <div class="title-bar-text">Inbox</div>
+                        <!-- New: Button Row (email-toolbar) just below title text -->
+  
+          <div class="title-bar-controls">
+            <button aria-label="Close" onclick="closeMailWindow()"></button>
+          </div>
+        </div>
+        <div class="email-toolbar">
+            <fieldset>
+                <p id="email-meta" style="margin: 0; font-size: 13px;"></p>
+            </fieldset>
+        </div>
+        <div class="window-body mail-window-body">
+     
+          <div id="emailList"></div>
+          <div id="emailContent">
+            <p><em>Select an email to read</em></p>
+          </div>
+        </div>
+      </div>
+
+      
+
+    <!-- Intro Animation Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const currentRound = parseInt(sessionStorage.getItem("round")) || 0;
+            const popup = document.getElementById("system-intro-popup");
+            const introPage1 = document.getElementById("intro-page1");
+            const mainContainer = document.querySelector(".main-container");
+
+            if (currentRound === 0 && popup && introPage1) {
+                setTimeout(() => {
+                    popup.style.display = "flex";
+                    if (!sessionStorage.getItem("introAnimated")) {
+                        introPage1.classList.add("animate-once");
+                        sessionStorage.setItem("introAnimated", "true");
+                    } else {
+                        introPage1.style.display = "block";
+                        introPage1.style.opacity = "1";
+                    }
+                }, 3000);
+            } else if (mainContainer) {
+                setTimeout(() => {
+                    mainContainer.style.opacity = "1";
+                }, 3000);
+            }
+        });
+
+        const observer = new MutationObserver(() => {
+            const nameEl = document.getElementById("profile-name");
+            if (nameEl && nameEl.textContent.trim() === "James Brown") {
+                document.body.classList.add("glitch-flicker");
+                setTimeout(() => {
+                    window.location.href = "shutdownglitch.html";
+                }, 4000);
+            }
+        });
+
+        const profileNameEl = document.getElementById("profile-name");
+        if (profileNameEl) {
+            observer.observe(profileNameEl, { childList: true, subtree: true });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            requestAnimationFrame(() => {
+                document.body.classList.add("fade-in");
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const emailMeta = document.getElementById("email-meta");
+            if (emailMeta) {
+                const baseDate = new Date("2050-05-02T00:00:00");
+                const currentRound = parseInt(sessionStorage.getItem("round")) || 0;
+                const inGameDate = new Date(baseDate.getTime() + currentRound * 24 * 60 * 60 * 1000);
+                const dateStr = inGameDate.toLocaleDateString("en-US", {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                });
+                emailMeta.innerHTML = `From: <strong>Unitedsystems@auto.com</strong> | Date: <strong>${dateStr}</strong>`;
+            }
+        });
+    </script>
+</body>
+</html>
