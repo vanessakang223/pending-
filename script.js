@@ -603,7 +603,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         totalScore += scoreChange;
         scoreDisplay.textContent = `${totalScore}`;
-        decisionLog.push(`<span style="display: flex; justify-content: space-between;"><span>${profile.name} was ${decision}</span><span>${scoreChange} pts</span></span>`);
+        decisionLog.push(`${profile.name} was ${decision} (${scoreChange} points).`);
   
         if (action === "approve") approvedCount++;
         else deniedCount++;
