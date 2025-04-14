@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Video Intro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        video {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <video id="introVideo" autoplay muted playsinline>
+        <source src="loadingvid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        const video = document.getElementById('introVideo');
+
+        // Force video to play in case autoplay is blocked
+        video.play().catch(() => {
+            console.log("Autoplay blocked. Waiting for user interaction.");
+            document.body.addEventListener("click", () => video.play(), { once: true });
+        });
+
+        // Redirect after video ends
+        video.addEventListener("ended", function() {
+            window.location.href = "home.html"; // Change this to your next page
+        });
+    </script>
+
+</body>
+</html>

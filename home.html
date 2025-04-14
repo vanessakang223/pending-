@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Users Profile Overview</title>
+    
+    <!-- External Styles & Scripts -->
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        /* Remove default margin & overflow */
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* Main Container */
+        .main-container {
+            max-height: 100vh;
+            overflow: hidden;
+            opacity: 0;
+            margin-bottom: 15px; /* Ensures space above bottom-bar */
+        }
+
+        .top-section {
+            opacity: 0;
+        }
+
+        /* Content Wrapper (Handles Scroll) */
+        .content-area {
+            max-height: 100vh;
+            overflow-y: auto;
+        }
+
+        /* Fade-in effect for buttons */
+        .content button {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="noise"></div>
+
+    <div class="main-container">
+        <div class="top-section">
+            Home_
+        </div>
+
+        <!-- Tools Bar -->
+        <div class="tools-bar">
+            <div class="button-row">
+                <div class="long-button window">Home\ Contents of: united systems overview</div>
+            </div>
+            <button class="question-button">i</button> 
+            <button class="question-button">!</button> 
+            <button class="question-button">?</button> 
+            <button class="question-button">X</button> 
+        </div>
+
+
+<!-- DOS-Style Popup Window -->
+<div id="dos-popup" class="dos-popup">
+    <div class="dos-header">HELP</div>
+    
+    <div class="dos-body">
+        <p><span class="dos-highlight">UPLOAD</span> - Press <span class="key">O</span></p>
+        <p><span class="dos-highlight">DENY</span> - Press <span class="key">X</span></p>
+    </div>
+
+    <div class="dos-footer">
+        <span class="dos-key">ESC</span> - Close 
+    </div>
+</div>
+
+<!-- Windows 98 Style Game Info Popup -->
+<div id="game-info-popup" class="window">
+    <div class="title-bar">
+        <div class="title-bar-text">About Pending™</div>
+        <div class="title-bar-controls">
+            <button id="close-game-popup" aria-label="Close"></button>
+        </div>
+    </div>
+    
+    <div class="window-body">
+        <p><strong>Pending™</strong> explores the illusion of power in AI-driven governance, where corporate-controlled platforms dictate the rules of online existence.</p>
+        <p>As an operator recruited by <strong>United Systems (U.S)</strong>, your job is to review user profiles and decide who is allowed to stay online.</p>
+        <p>Your decisions will shape the future of digital society—will you comply?</p>
+    </div>
+<!-- 
+    <div class="status-bar">
+        <button id="game-popup-ok">comply</button>
+    </div> -->
+</div>
+
+        <!-- Main Content -->
+        <div class="content-area">
+            <div class="sidebar"></div>
+
+            <div class="content-wrapper">
+                <div class="content">
+                    <div class="entry-button">
+                        <button disabled><span>Unread Message(s)</span></button>
+
+                    <a href="inbox.html">   
+                        <button id="open-inbox">
+                            <img src="Img/mail.png">
+                            <span class="name">onboardinginstructions</span> 
+                            <span class="middle-text"> [view inbox] </span>
+                            <span style="margin-left: auto;">[x]</span>
+                        </button>
+                    </a>
+
+                        <button disabled><span>(4) Pending Profile(s) to Review</span></button>
+
+                        <a href="Profiles.html">   
+                        <button>
+                            <img src="Img/folder-thick.png">
+                            <span class="name">Helen Chen</span>
+                            <span class="middle-text"> [Case #12301] </span>
+                            <span style="margin-left: auto;">[x]</span>
+                        </button>
+                        </a>
+
+                        <button>
+                            <img src="Img/folder-thick.png">
+                            <span class="name">Jake Reynolds</span>
+                            <span class="middle-text"> [Case #12302] </span>
+                            <span style="margin-left: auto;">[x]</span>
+                        </button>
+                        <button>
+                            <img src="Img/folder-thick.png">
+                            <span class="name">nina patel</span>
+                            <span class="middle-text"> [Case #12303] </span>
+                            <span style="margin-left: auto;">[x]</span>
+                        </button>
+                        <button>
+                            <img src="Img/folder-thick.png">
+                            <span class="name">Shannon White</span>
+                            <span class="middle-text"> [Case #12304] </span>
+                            <span style="margin-left: auto;">[x]</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Bottom Bar -->
+    <div class="bottom-bar">
+        <a href="home.html">
+        <button><img src="Img/house.png" class="no-margin"></button></a>
+        <button><img src="Img/mail.png" class="no-margin"></button>
+
+        <div class="right-section">
+            <input type="text" class="points-input input" value="0" readonly>
+        </div>
+        <button disabled>Monday 05-02-2050</button>
+    </div>
+
+    <script src="script.js"></script> <!-- External JavaScript file -->
+</body>
+</html>

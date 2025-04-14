@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Centered Rectangle with No Scroll</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Prevent scrolling */
+      background-color: black;
+      color: white;
+      font-family: monospace;
+      font-size: 14px;
+    }
+    .terminal {
+      white-space: pre-wrap;
+      line-height: 1.4;
+      height: 100vh;
+      overflow: hidden; /* No scrolling */
+      position: relative;
+      image-rendering: pixelated;
+      filter: contrast(1.2) saturate(1.1) blur(0.6px);
+    }
+    /* Welcome message styling */
+    #welcomeMessage {
+      font-size: 48px;
+      text-align: center;
+      margin-top: 20vh;
+    }
+    .rgb-shift {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      animation: rgbShift 0.1s infinite alternate;
+    }
+    @keyframes rgbShift {
+      0% { text-shadow: -1px 0 blue, 1px 0 cyan; }
+      100% { text-shadow: 1px 0 blue, -1px 0 cyan; }
+    }
+    .underscore {
+      animation: blink 0.4s infinite alternate;
+    }
+    @keyframes blink {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    /* Fade-out glitch effect for the text */
+    .fade-out {
+      animation: fadeOut 1s forwards;
+    }
+    @keyframes fadeOut {
+      0% { opacity: 1; filter: none; }
+      50% { opacity: 0.5; filter: blur(1px); }
+      100% { opacity: 0; filter: blur(3px); }
+    }
+    /* Canvas fills the viewport and is initially hidden */
+    canvas {
+      display: block;
+      opacity: 0;
+      transition: opacity 1s ease;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <pre id="welcomeMessage" class="rgb-shift"></pre>
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <script>
+    // Welcome message typing effect
+    const welcomeText = "WELCOME TO THE SYSTEM... ";
+    const welcomeElem = document.getElementById("welcomeMessage");
+    let currentIndex = 0;
+    function typeText() {
+      if (currentIndex < welcomeText.length) {
+        welcomeElem.innerHTML += welcomeText[currentIndex];
+        currentIndex++;
+        setTimeout(typeText, 200);
+      } else {
+        welcomeElem.innerHTML += "<span class='underscore'>_</span>";
+        setTimeout(() => {
+          welcomeElem.classList.add("fade-out");
+          setTimeout(() => {
+            welcomeElem.style.display = "none";
+            startRectangleAnimation();
+          }, 1000);
+        }, 1500);
+      }
+    }
+    setTimeout(typeText, 500);
+
+    let rectangleDrawn = false;
+    function drawRectangle(ctx, canvasWidth, canvasHeight, animate = false, progress = 0, totalLength = 0) {
+      const margin = 25;
+      const x = margin;
+      const y = margin;
+      const rectWidth = canvasWidth - 2 * margin;
+      const rectHeight = canvasHeight - 2 * margin;
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = 2;
+      ctx.shadowBlur = 20;
+      ctx.shadowColor = 'white';
+      ctx.beginPath();
+      // Draw rectangle path: bottom left → top left → top right → bottom right → back to bottom left
+      ctx.moveTo(x, y + rectHeight);
+      ctx.lineTo(x, y);
+      ctx.lineTo(x + rectWidth, y);
+      ctx.lineTo(x + rectWidth, y + rectHeight);
+      ctx.lineTo(x, y + rectHeight);
+      if (animate) {
+        ctx.setLineDash([totalLength]);
+        ctx.lineDashOffset = totalLength - progress;
+      } else {
+        ctx.setLineDash([]);
+      }
+      ctx.stroke();
+    }
+
+    function startRectangleAnimation() {
+      const canvas = document.getElementById('canvas');
+      // Set canvas to full viewport
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      canvas.style.opacity = 1; // Fade in canvas
+      const ctx = canvas.getContext('2d');
+      const margin = 25;
+      const rectWidth = canvas.width - 2 * margin;
+      const rectHeight = canvas.height - 2 * margin;
+      const totalLength = 2 * (rectWidth + rectHeight);
+
+      let progress = 0;
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawRectangle(ctx, canvas.width, canvas.height, true, progress, totalLength);
+        if (progress < totalLength) {
+          progress += 10;
+          requestAnimationFrame(animate);
+        } else {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          drawRectangle(ctx, canvas.width, canvas.height, false);
+          rectangleDrawn = true;
+          // After the rectangle animation, redirect to profiles.html after a brief delay.
+          setTimeout(() => {
+            window.location.href = "profiles.html";
+          }, 1500);
+        }
+      }
+      animate();
+    }
+
+    // Recalculate canvas size and redraw the rectangle on window resize
+    window.addEventListener('resize', () => {
+      const canvas = document.getElementById('canvas');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      if (rectangleDrawn) {
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawRectangle(ctx, canvas.width, canvas.height, false);
+      }
+    });
+  </script>
+</body>
+</html>

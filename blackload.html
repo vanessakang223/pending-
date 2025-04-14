@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 95 Boot</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: monospace;
+            font-size: 14px; /* Authentic DOS font size */
+            padding: 5px;
+            overflow: hidden;
+        }
+        .terminal {
+            white-space: pre-wrap;
+            line-height: 1.4;
+            height: 100vh; /* Fill screen height */
+            overflow-y: auto; /* Enable scrolling */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Start text at the top */
+            position: relative;
+            image-rendering: pixelated; /* Static pixelation effect */
+            filter: contrast(1.2) saturate(1.1) blur(0.6px); /* Tiny pixelation effect */
+        }
+
+        .noise {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 100;
+    opacity: 0.02;
+  }
+  
+        
+        
+        .rgb-shift {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            animation: rgbShift 0.1s infinite alternate;
+        }
+        @keyframes rgbShift {
+            0% {
+                text-shadow: -1px 0 blue, 1px 0 cyan;
+            }
+            100% {
+                text-shadow: 1px 0 blue, -1px 0 cyan;
+            }
+        }
+        .underscore {
+            animation: blink 0.4s infinite alternate; 
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal rgb-shift">
+        <pre id="bootScreen">Please wait while system initializes<span class="underscore">_</span></pre>
+    </div>
+
+    <script>
+        const bootChunks = [
+            `PhoenixBIOS 4.0 Release 6.0.2
+(C) Copyright 1985-1995 Phoenix Technologies Ltd.
+ALL RIGHTS RESERVED\n\n`,
+            `Detecting Primary Master .......... [OK]
+Detecting Primary Slave ........... [None]
+Detecting Secondary Master ........ [OK]
+Detecting Secondary Slave ......... [None]\n\n`,
+            `Memory Test: 32768 KB OK
+Initializing Plug and Play Devices... Done.\n\n`,
+            `C:\\>CHKDSK /F
+Checking file system on C:
+The type of the file system is FAT16.
+Volume label: SYSTEM
+Verifying 409,600 KB of total disk space...\n\nFile system structure clean.
+No errors found.\n\n`,
+            `C:\\>DIR /P_
+ Volume in drive C is WINDOWS95
+ Directory of C:\\\n\nAUTOEXEC BAT      07-21-95  12:45PM      2,048
+CONFIG   SYS      07-21-95  12:45PM      1,024
+COMMAND  COM      07-21-95  12:45PM     92,160
+WIN      INI      07-21-95  12:45PM     32,768
+SYSTEM   DAT      07-21-95  12:45PM    512,000
+MSDOS    SYS      07-21-95  12:45PM      4,096
+WIN.COM           07-21-95  12:45PM     37,376\n\n
+ 7 file(s)    679,472 bytes
+ 1 dir(s)  2,048,000 bytes free\n\n`,
+            `C:\\>WIN
+Loading Microsoft Windows_`,
+            `[Starting Windows 95...]
+A fatal exception 0E has occurred at 0028:C001E36 in VXD VMM(01) + 00010E36
+The current application will be terminated.\n\n\n`
+        ];
+
+       // Initialize an array with the first line of text displayed at the top.
+// The underscore (_) in a <span> tag is used to create a blinking cursor effect.
+let output = ["Please wait while system initializes<span class='underscore'>_</span>\n"];
+
+// Index to track which chunk of text is being displayed
+let index = 0;
+
+// Delay between adding each chunk of text (in milliseconds)
+// 2000ms (2 seconds) → The time between each new chunk of text appearing
+let chunkDelay = 500; 
+
+function typeChunk() {
+    // Check if there are more chunks left to display
+    if (index < bootChunks.length) {
+        let chunk = bootChunks[index]; // Get the current chunk
+
+        // If the chunk contains an underscore (_), replace it but keep the blinking effect
+        if (chunk.includes("_")) {
+            output.push(chunk.replace("_", "") + '<span class="underscore">_</span>');
+        } else {
+            output.push(chunk);
+        }
+
+        index++; // Move to the next chunk
+
+        // Schedule the next chunk to appear after the defined delay
+        setTimeout(typeChunk, chunkDelay); // 500ms (0.5 seconds) per chunk
+
+        // Update the terminal display with the new text
+        document.getElementById("bootScreen").innerHTML = output.join("\n");
+
+        // Auto-scroll to keep the latest text visible at the bottom
+        let terminal = document.querySelector(".terminal");
+        terminal.scrollTop = terminal.scrollHeight;
+    } else {
+        // Once all chunks are displayed, update the screen one final time
+        document.getElementById("bootScreen").innerHTML = output.join("\n");
+
+        // Simulate a short freeze before redirecting
+        setTimeout(() => {
+            window.location.href = "profiles.html"; // Change this URL to match the next page
+        }, 2500); // 2300ms (2.3 seconds) → Simulated system pause before redirect
+    }
+}
+
+// Start displaying text **after** the initial "Please wait while system initializes_"
+// The delay ensures the first message stays for 2 seconds before new text appears
+setTimeout(typeChunk, 1500); // 1500ms (2 seconds) → Initial wait before typing begins
+    </script>
+</body>
+</html>

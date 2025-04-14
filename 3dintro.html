@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Intro</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=IBM+Plex+Mono:wght@100..700&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        /* 🔹 Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        /* 🔹 Fullscreen Background */
+        body {
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+        }
+
+        /* 🔹 Fullscreen Video */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            cursor: none;
+        }
+
+        /* 🔹 Custom Cursor */
+        .custom-cursor {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "IBM Plex Mono", monospace;
+            text-align: center;
+            font-weight: 500;
+            font-size: 13px;
+            color: rgb(255, 255, 255);
+            background: rgb(0, 0, 255);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            opacity: 100;
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+            backdrop-filter: blur(6px);
+        }
+
+        .custom-cursor::before {
+            content: "";
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            border: 1px solid rgb(0, 0, 255);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* 🔹 Made By Van Text */
+        .madebyvan-button {
+            position: fixed;
+            bottom: 4px;
+            left: 4px;
+            padding: 10px;
+            color: rgb(0, 0, 0);
+            font-family: "IBM Plex Mono", monospace;
+            font-weight: 500;
+            font-size: 7px;
+            text-transform: uppercase;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        /* 🔹 Join Us Button */
+        .joinus-button {
+            position: fixed;
+            top: 4px;
+            padding: 8px;
+            line-height: 1.1;
+            transform: scale(0.4);
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        /* 🔹 Adjust Join Us Image */
+        .joinus-button img {
+            margin-top: -90px; /* Moves the button up */
+            left:4px
+        }
+
+        /* 🔹 Fade-out Effect */
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            transition-delay: 1.2s
+        }
+
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Create a custom cursor
+            const cursor = document.createElement("div");
+            cursor.classList.add("custom-cursor");
+            cursor.innerText = "CLICK";
+            document.body.appendChild(cursor);
+
+            // Track mouse movement
+            document.addEventListener("mousemove", (e) => {
+                cursor.style.opacity = "1";
+                cursor.style.left = `${e.clientX}px`;
+                cursor.style.top = `${e.clientY}px`;
+            });
+
+            // Hide cursor on mouse leave
+            document.addEventListener("mouseleave", () => {
+                cursor.style.opacity = "0";
+            });
+
+            // Show cursor again on mouse enter
+            document.addEventListener("mouseenter", () => {
+                cursor.style.opacity = "1";
+            });
+
+            // Handle video click (play video and fade out elements)
+            const video = document.getElementById("bgVideo");
+            video.addEventListener("click", function () {
+                video.play();
+
+                // Fade out the cursor, Join Us button, and Made by Van text
+                cursor.classList.add("fade-out");
+                document.querySelector(".joinus-button").classList.add("fade-out");
+                document.querySelector(".madebyvan-button").classList.add("fade-out");
+
+                // Remove cursor from DOM after fade-out
+                setTimeout(() => {
+                    cursor.remove();
+                }, 800); // Wait for transition to complete
+
+                // Redirect when video ends
+                video.addEventListener("ended", () => {
+                    window.location.href = "blackload.html";
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Background Video -->
+    <video id="bgVideo" class="video-container">
+        <source src="Multimedia/bw entry-textless.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Made By Van Info -->
+    <div class="madebyvan-button">
+        Design & Programming: Vanessa Kang
+        <br>Parsons School of Design
+        <br>CD Senior Design Thesis
+    </div>
+
+    <!-- Join Us Button -->
+    <div class="joinus-button">
+        <!-- <img src="Img/6_pending text -06.png"> -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Game Over</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0000AA; /* DOS/Win9x-like blue */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      font-family: "Pixelated MS Sans Serif", Arial;
+      color: #FFF;
+    }
+    .score {
+      font-size: 4rem; /* BIG text for the score */
+      margin-bottom: 20px;
+    }
+    .message {
+      font-size: 1.3rem;
+      max-width: 600px;
+      line-height: 1.4;
+      margin-bottom: 30px;
+    }
+    .summaries {
+      max-width: 600px;
+      text-align: left;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border: 2px solid #fff;
+      margin-top: 10px;
+    }
+    .summaries h3 {
+      margin: 8px 0 4px;
+      font-size: 1.1rem;
+    }
+    .summaries ul {
+      margin: 0 0 10px;
+      padding-left: 20px;
+    }
+    .summaries li {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Final Score Display -->
+  <div class="score" id="scoreDisplay">0</div>
+  <!-- Message or Explanation -->
+  <div class="message">You did not receive a full-time opportunity.</div>
+
+  <!-- Container where we’ll show day-by-day summaries -->
+  <div class="summaries" id="summariesContainer">
+    <p><strong>Here are your choices from the 5 days:</strong></p>
+  </div>
+
+  <script>
+    // 1) Retrieve final score
+    const finalScore = sessionStorage.getItem('finalScore') || 0;
+    document.getElementById('scoreDisplay').textContent = finalScore;
+
+    // 2) Retrieve daySummaries from sessionStorage
+    const daySummaries = JSON.parse(sessionStorage.getItem('daySummaries')) || [];
+
+    // 3) Dynamically build and display the day-by-day logs
+    const summariesContainer = document.getElementById('summariesContainer');
+
+    if (daySummaries.length === 0) {
+      summariesContainer.innerHTML += "<p>No daily logs found.</p>";
+    } else {
+      daySummaries.forEach((logArray, dayIndex) => {
+        let dayHtml = `<h3>Day ${dayIndex + 1}:</h3><ul>`;
+        logArray.forEach(entry => {
+          dayHtml += `<li>${entry}</li>`;
+        });
+        dayHtml += "</ul>";
+        summariesContainer.innerHTML += dayHtml;
+      });
+    }
+  </script>
+</body>
+</html>

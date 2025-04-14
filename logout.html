@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logging Out...</title>
+
+      <!-- Windows 98 CSS -->
+      <link rel="stylesheet" href="https://unpkg.com/98.css">
+      <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Full-screen retro blue background */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0000AA; /* Classic Windows 95 shutdown blue */
+            color: white;
+            font-family: "Pixelated MS Sans Serif", Arial;
+            line-height: normal;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .blink {
+            font-size: 30px;
+            /* font-weight: bold; */
+            animation: blinkText 1.5s infinite;
+            /* background: white; */
+            color: rgb(255, 255, 255);
+            padding: 5px;
+            /* border: 1px solid rgb(255, 255, 255); */
+            display: inline-block;
+        }
+
+        @keyframes blinkText {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Retro loading squares */
+        .loading {
+            display: flex;
+            gap: 11px;
+            margin-top: 15px;
+        }
+
+        .square {
+            width: 13px;
+            height: 13px;
+            background-color: white;
+            /* border: 1px solid black; */
+            animation: loadingAnim 1.5s infinite;
+        }
+
+        /* Staggered animation for the loading effect */
+        .square:nth-child(1) { animation-delay: 0s; }
+        .square:nth-child(2) { animation-delay: 0.2s; }
+        .square:nth-child(3) { animation-delay: 0.4s; }
+        .square:nth-child(4) { animation-delay: 0.6s; }
+
+        /* Loading square bounce */
+        @keyframes loadingAnim {
+            0% { opacity: 0.3; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0.3; transform: scale(0.9); }
+        }
+
+        /* Fake Windows 95 loading bar */
+        .loading-bar {
+            width: 220px;
+            height: 30px;
+            background-color: black;
+            border: 1px solid white;
+            margin-top: 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            padding: 2px;
+        }
+
+        
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background-color: white;
+            border-right: 1px solid black;
+            animation: progressAnim 1.5s linear forwards;
+        }
+
+        @keyframes progressAnim {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        .message-box {
+            color: rgb(255, 255, 255);
+            padding: 10px;
+            width: 280px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .subheading {
+            color: rgb(255, 255, 255);
+            padding: 10px;
+            width: 280px;
+            text-align: center;
+            margin-top: 15px;
+            font-size: small;
+        }
+    </style>
+</head>
+<body>
+    <div class="blink">Logging Out...</div>
+
+    <!-- Retro Message Box -->
+ 
+    <div class="subheading">
+        Your session will resume automatically.
+    </div>
+
+    <!-- Windows 95 Fake Loading Bar -->
+    <div class="loading-bar">
+        <div class="progress"></div>
+    </div>
+
+    <!-- Auto-Redirect Script -->
+    <script>
+        setTimeout(() => {
+            window.location.href = "profiles.html"; // Redirect after 4s
+        }, 2500);
+    </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3Dintro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        body {
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            cursor: none;
+        }
+
+        /* Custom Cursor */
+        .custom-cursor {
+            position: absolute;
+            width: 118px;
+            height: 118px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "IBM Plex Mono", monospace;
+            font-weight: 500;
+            font-size: 14px;
+            color: rgb(255, 255, 255);
+            background: rgba(255, 255, 255, 0.2);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .custom-cursor::before {
+            content: "";
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            border: 1px solid white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Fade-out effect */
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .madebyvan-button {
+            position: fixed;
+            bottom: 4px;
+            left: 4px;
+            padding: 8px;
+            color: rgb(0, 0, 0);
+            font-family: "IBM Plex Mono", monospace;
+            font-weight: 500;
+            font-style: normal;
+            font-size: 9px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .joinus-button {
+            position: fixed;
+            top: 4px;
+            padding: 8px;
+            line-height: 1.1;
+            transform: scale(0.65);
+        }
+
+        img {
+            margin-top: -40px;
+        }
+    </style>
+</head>
+<body>
+
+    <video id="bgVideo" class="video-container">
+        <source src="Multimedia/gogo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="madebyvan-button">
+        Design & Programming: Vanessa Kang
+        <br>
+        Parsons School of Design 
+        <br>
+        CD Senior Design Thesis 
+    </div>
+
+    <div class="joinus-button">
+        <img src='Img/6_pending text -06.png'>
+    </div>
+
+    <script>
+ 
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // 1️⃣ Create and append the custom cursor once
+            const cursor = document.createElement("div");
+            cursor.classList.add("custom-cursor");
+            cursor.innerText = "JOIN U.S";
+            document.body.appendChild(cursor);
+
+            // 2️⃣ Cursor follows the mouse
+            function moveCursor(e) {
+                cursor.style.opacity = 1; // Ensure cursor is visible
+                cursor.style.left = `${e.clientX}px`;
+                cursor.style.top = `${e.clientY}px`;
+            }
+            document.addEventListener("mousemove", moveCursor);
+
+            // 3️⃣ Cursor fades out & removes when leaving screen
+            document.addEventListener("mouseleave", function () {
+                cursor.style.opacity = "0"; // Start fade-out
+                setTimeout(() => {
+                    cursor.style.display = "none"; // Remove after fading out
+                }, 800); // Matches transition time (0.8s)
+            });
+
+            // 4️⃣ Cursor fades in & reappears when mouse enters
+            document.addEventListener("mouseenter", function () {
+                cursor.style.display = "flex"; // Restore cursor
+                setTimeout(() => {
+                    cursor.style.opacity = "1"; // Fade back in
+                }, 10); // Small delay to allow `display: flex` to apply before fade-in
+            });
+
+            // 5️⃣ Fade out images and text when clicked
+            document.addEventListener("click", function () {
+                // Fade out cursor when clicked
+                cursor.classList.add("fade-out");
+
+                // Fade out the joinus-button image
+                const image = document.querySelector(".joinus-button img");
+                if (image) {
+                    image.classList.add("fade-out");
+                }
+
+                // Fade out the madebyvan-button text
+                const madeByVanText = document.querySelector(".madebyvan-button");
+                if (madeByVanText) {
+                    madeByVanText.classList.add("fade-out");
+                }
+            });
+
+            // 6️⃣ Play video and remove cursor on click
+            function playVideo() {
+                const video = document.getElementById("bgVideo");
+                video.play();
+                cursor.style.display = "none";
+                video.addEventListener("ended", () => {
+                    window.location.href = "blackload.html"; // Change to your desired URL
+                });
+            }
+            document.getElementById("bgVideo").addEventListener("click", playVideo);
+        });
+    </script>
+
+</body>
+</html>

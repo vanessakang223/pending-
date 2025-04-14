@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Users Profile Overview</title>
+    
+    <!-- External Styles & Scripts -->
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        /* Remove default margin & overflow */
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* Main Container */
+        .main-container {
+            max-height: 100vh;
+            overflow: hidden;
+            opacity: 0;
+            margin-bottom: 15px; /* Ensures space above bottom-bar */
+        }
+
+        .top-section {
+            opacity: 0;
+        }
+
+        /* Content Wrapper (Handles Scroll) */
+        .content-area {
+            max-height: 100vh;
+            overflow-y: auto;
+        }
+
+        /* Fade-in effect for buttons */
+        .content button {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="noise"></div>
+
+    <div class="main-container">
+        <div class="top-section">
+            Home_
+        </div>
+
+        <!-- Tools Bar -->
+        <div class="tools-bar">
+            <div class="button-row">
+                <div class="long-button window">Home\ Contents of: united systems email inbox</div>
+            </div>
+            <button class="question-button">i</button> 
+            <button class="question-button">!</button> 
+            <button class="question-button">?</button> 
+            <button class="question-button">X</button> 
+        </div>
+
+<!-- Main Content -->
+<div class="content-area">
+    <!-- Left Sidebar (35%) -->
+    <div class="sidebar-email">
+        <div class="content">
+            <div class="entry-button">
+                <button disabled><span>today, Monday 05-02-2050</span></button>
+
+                <button id="open-inbox">
+                    <img src="Img/notes.png">
+                    <span class="name">pay statement(1)</span> 
+                </button>
+
+                <button>
+                    <img src="Img/folder-thick.png">
+                    <span class="name">onboarding</span>
+                </button>
+                
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area (65%) -->
+    <div class="main-content">
+        <div class="no-messages-selected">No Messages Selected</div>
+    </div>
+</div>
+
+    <!-- Bottom Bar -->
+    <div class="bottom-bar">
+        <a href="home.html">
+        <button><img src="Img/house.png" class="no-margin"></button></a>
+        <button><img src="Img/mail.png" class="no-margin"></button>
+
+        <div class="right-section">
+            <input type="text" class="points-input input" value="0" readonly>
+        </div>
+        <button disabled>Monday 05-02-2050</button>
+    </div>
+
+    <script src="script.js"></script> <!-- External JavaScript file -->
+</body>
+</html>
