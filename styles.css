@@ -329,7 +329,7 @@ button {
 .profile-section {
     display: flex;
     flex-grow: 1;
-    align-items: center;
+    /* align-items: center; */
     margin-bottom: 10px;
     padding-left: 0;
     font-size: 9px;
@@ -348,15 +348,19 @@ button {
 
 .profile-info p {
     margin: 5px 0;
-    font-size: 10px;
+    font-size: 12px;
     line-height: normal;
     /* line-height: 12px; */
     /* width:35%; */
 }
 
-.profile-info{
-    /* display: flex; */
+.profile-info {
     width: 170px;
+    position: sticky;
+    top: 0;
+    padding-right: 5px;
+    background-color: #C5C5C5; /* optional: ensure it doesn’t look transparent under scroll */
+    z-index: 1; /* optional: make sure it stays above other content */
 }
 
 #profile-name{
@@ -446,6 +450,8 @@ fieldset{
     /* margin-left:8px; */
     padding-right:8px;   
     /* text-align: center; */
+     /* padding-left: 8px; */
+     width: 100%;
 }
 
 .welcome-popup {
@@ -634,7 +640,7 @@ font-size: larger;
 
   .log-section fieldset,
   .score-section fieldset {
-    /* margin-right: 8px; */
+    /* margin-left: 8px; */
     font-size: 9px;
   }
 
@@ -881,7 +887,7 @@ ul.tree-view {
     background-color: #C5C5C5;
     border-top: 1px solid #fff; */
     border-bottom: 1px solid #000;
-    padding: 4px 6px;
+    padding: 4px 4px;
     /* gap: 4px; space between buttons */
   }
 
