@@ -80,97 +80,101 @@ document.addEventListener("DOMContentLoaded", () => {
             "[April 3, 2050] – Reacted with a ‘heart’ emoji to a post about an AI-powered produce freshness scanner.",
             "[March 28, 2050] – Shared highlights from an interactive design installation on sustainable farming solutions."
           ],
+          insights: [
+            "Meets institutional deadlines and requirements proactively",
+            "Engages with systems that emphasize environmental responsibility"
+          ],
           img: "img/helen.jpg",
           approvePoints: 100,
           denyPoints: -100
         },
-        {
-          name: "Jake Reynolds",
-          location: "Los Angeles",
-          email: "jake@example.com",
-          job: "Designer",
-          traits: [
-            "Keeps up with current UI/UX trends through visual design platforms",
-            "Explores inclusive and accessible design tools via community plugins",
-            "Demonstrates a preference for observation over social interaction online"
-          ],
-          footprint: [
-            "[April 18, 2050] – Visited Behance to check trending UI portfolios.",
-            "[April 16, 2050] – Browsed UI Movement's weekly roundup on microinteractions.",
-            "[April 11, 2050] – Spent 15 minutes on a Figma plugin marketplace browsing accessibility tools.",
-            "[April 10, 2050] – Inactive on social media for the past 6 months."
-          ],
-          img: "img/jake.jpg",
-          approvePoints: 40,
-          denyPoints: -20
-        },
-        {
-          name: "Rebecca Johnson",
-          location: "San Francisco",
-          email: "shannon@example.com",
-          job: "Writer",
-          traits: [
-            "Regularly analyzes user purchase behavior and emerging product trends",
-            "Shows interest in AI personalization within online shopping platforms",
-            "Frequently participates in feedback systems and reviews of consumer goods"
-          ],
-          footprint: [
-            "[April 24, 2050] – Published a blog post titled 'The Algorithms Behind What You Buy'.",
-            "[April 20, 2050] – Added 12 items to cart on 3 different online fashion sites but didn’t purchase.",
-            "[April 17, 2050] – Searched for 'AI-curated subscription boxes'.",
-            "[April 15, 2050] – Shared a tweet about micro-influencer impact on product trends.",
-            "[April 12, 2050] – Opted into a loyalty program for eco-conscious lifestyle products.",
-            "[April 10, 2050] – Left a review on a smart notebook she ordered 3 weeks ago."
-          ],
-          img: "img/dsklf.jpg",
-          approvePoints: 70,
-          denyPoints: -50
-        }
+        // {
+        //   name: "Jake Reynolds",
+        //   location: "Los Angeles",
+        //   email: "jake@example.com",
+        //   job: "Designer",
+        //   traits: [
+        //     "Keeps up with current UI/UX trends through visual design platforms",
+        //     "Explores inclusive and accessible design tools via community plugins",
+        //     "Demonstrates a preference for observation over social interaction online"
+        //   ],
+        //   footprint: [
+        //     "[April 18, 2050] – Visited Behance to check trending UI portfolios.",
+        //     "[April 16, 2050] – Browsed UI Movement's weekly roundup on microinteractions.",
+        //     "[April 11, 2050] – Spent 15 minutes on a Figma plugin marketplace browsing accessibility tools.",
+        //     "[April 10, 2050] – Inactive on social media for the past 6 months."
+        //   ],
+        //   img: "img/jake.jpg",
+        //   approvePoints: 40,
+        //   denyPoints: -20
+        // },
+        // {
+        //   name: "Rebecca Johnson",
+        //   location: "San Francisco",
+        //   email: "shannon@example.com",
+        //   job: "Writer",
+        //   traits: [
+        //     "Regularly analyzes user purchase behavior and emerging product trends",
+        //     "Shows interest in AI personalization within online shopping platforms",
+        //     "Frequently participates in feedback systems and reviews of consumer goods"
+        //   ],
+        //   footprint: [
+        //     "[April 24, 2050] – Published a blog post titled 'The Algorithms Behind What You Buy'.",
+        //     "[April 20, 2050] – Added 12 items to cart on 3 different online fashion sites but didn’t purchase.",
+        //     "[April 17, 2050] – Searched for 'AI-curated subscription boxes'.",
+        //     "[April 15, 2050] – Shared a tweet about micro-influencer impact on product trends.",
+        //     "[April 12, 2050] – Opted into a loyalty program for eco-conscious lifestyle products.",
+        //     "[April 10, 2050] – Left a review on a smart notebook she ordered 3 weeks ago."
+        //   ],
+        //   img: "img/dsklf.jpg",
+        //   approvePoints: 70,
+        //   denyPoints: -50
+        // }
       ], 
       // Round 2
       [
-        {
-          name: "Shannon White",
-          location: "San Francisco",
-          email: "shannon@example.com",
-          job: "Writer",
-          traits: [
-            "Contributes polished writing samples for internal peer evaluation",
-            "Maintains organized document metadata and tagging structures",
-            "Actively collaborates within shared digital writing environments"
-          ],
-          footprint: [
-            "[April 24, 2050] – Uploaded a writing sample for internal review.",
-            "[April 23, 2050] – Accessed ShoppingHistory_March.csv via cloud storage.",
-            "[April 21, 2050] – Edited document metadata to reflect professional title.",
-            "[April 20, 2050] – Added tags to documents for discoverability.",
-            "[April 18, 2050] – Browsed others’ writing samples in the shared folder."
-          ],
-          img: "img/dsklf.jpg",
-          approvePoints: 120,
-          denyPoints: -90
-        },
-        {
-          name: "Sophia Martinez",
-          location: "Boston",
-          email: "sophia@example.com",
-          job: "Artist",
-          traits: [
-            "Engages in iterative AI art creation using advanced prompt-based tools",
-            "Publicly shares and discusses her creative process with online communities",
-            "Incorporates viewer feedback into evolving visual art submissions"
-          ],
-          footprint: [
-            "[April 22, 2050] – Generated three AI art variations using DreamPrompt.",
-            "[April 20, 2050] – Shared AI-generated collage to internal community feed.",
-            "[April 19, 2050] – Explored prompt crafting tips via tutorial archive.",
-            "[April 17, 2050] – Revised prompt based on viewer feedback.",
-            "[April 15, 2050] – Exported art for print submission."
-          ],
-          img: "img/profile img1.jpg",
-          approvePoints: 75,
-          denyPoints: -45
-        },
+        // {
+        //   name: "Shannon White",
+        //   location: "San Francisco",
+        //   email: "shannon@example.com",
+        //   job: "Writer",
+        //   traits: [
+        //     "Contributes polished writing samples for internal peer evaluation",
+        //     "Maintains organized document metadata and tagging structures",
+        //     "Actively collaborates within shared digital writing environments"
+        //   ],
+        //   footprint: [
+        //     "[April 24, 2050] – Uploaded a writing sample for internal review.",
+        //     "[April 23, 2050] – Accessed ShoppingHistory_March.csv via cloud storage.",
+        //     "[April 21, 2050] – Edited document metadata to reflect professional title.",
+        //     "[April 20, 2050] – Added tags to documents for discoverability.",
+        //     "[April 18, 2050] – Browsed others’ writing samples in the shared folder."
+        //   ],
+        //   img: "img/dsklf.jpg",
+        //   approvePoints: 120,
+        //   denyPoints: -90
+        // },
+        // {
+        //   name: "Sophia Martinez",
+        //   location: "Boston",
+        //   email: "sophia@example.com",
+        //   job: "Artist",
+        //   traits: [
+        //     "Engages in iterative AI art creation using advanced prompt-based tools",
+        //     "Publicly shares and discusses her creative process with online communities",
+        //     "Incorporates viewer feedback into evolving visual art submissions"
+        //   ],
+        //   footprint: [
+        //     "[April 22, 2050] – Generated three AI art variations using DreamPrompt.",
+        //     "[April 20, 2050] – Shared AI-generated collage to internal community feed.",
+        //     "[April 19, 2050] – Explored prompt crafting tips via tutorial archive.",
+        //     "[April 17, 2050] – Revised prompt based on viewer feedback.",
+        //     "[April 15, 2050] – Exported art for print submission."
+        //   ],
+        //   img: "img/profile img1.jpg",
+        //   approvePoints: 75,
+        //   denyPoints: -45
+        // },
         {
           name: "Michael Brown",
           location: "Houston",
@@ -185,8 +189,11 @@ document.addEventListener("DOMContentLoaded", () => {
             "[April 24, 2050] – Completed a system-wide feedback survey.",
             "[April 22, 2050] – Opted into behavioral research participation.",
             "[April 21, 2050] – Responded to targeted feedback questionnaire.",
-            "[April 19, 2050] – Viewed analytics dashboard for survey results.",
             "[April 17, 2050] – Marked as 'high contributor' in survey insights."
+          ],
+          insights: [
+            "Provides high-quality feedback recognized by analytics",
+            "Demonstrates strong alignment with platform engagement goals"
           ],
           img: "img/profile img2.jpg",
           approvePoints: 85,
@@ -195,47 +202,47 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
       // Round 3
       [
-        {
-          name: "Sophia Martinez",
-          location: "Boston",
-          email: "sophia@example.com",
-          job: "Artist",
-          traits: [
-            "Reliable contributor",
-            "Engages in community projects",
-            "Prefers asynchronous communication"
-          ],
-          footprint: [
-            "[April 22, 2050] – Generated three AI art variations using DreamPrompt.",
-            "[April 20, 2050] – Shared AI-generated collage to internal community feed.",
-            "[April 19, 2050] – Explored prompt crafting tips via tutorial archive.",
-            "[April 17, 2050] – Revised prompt based on viewer feedback.",
-            "[April 15, 2050] – Exported art for print submission."
-          ],
-          img: "https://placekitten.com/105/105",
-          approvePoints: 60,
-          denyPoints: -50
-        },
-        {
-          name: "James Brown",
-          location: "Minneapolis",
-          email: "benjamin@example.com",
-          job: "Banker",
-          traits: [
-            "Reliable contributor",
-            "Engages in community projects",
-            "Prefers asynchronous communication"
-          ],
-          footprint: [
-            "[April 24, 2050] – Flagged a market irregularity to an internal feed.",
-            "[April 22, 2050] – Adjusted alert settings on five trading dashboards.",
-            "[April 21, 2050] – Viewed confidential volatility predictions.",
-            "[April 20, 2050] – Made two private bookmarks in stock pattern explorer."
-          ],
-          img: "https://placekitten.com/118/118",
-          approvePoints: 65,
-          denyPoints: -40
-        },
+        // {
+        //   name: "Sophia Martinez",
+        //   location: "Boston",
+        //   email: "sophia@example.com",
+        //   job: "Artist",
+        //   traits: [
+        //     "Reliable contributor",
+        //     "Engages in community projects",
+        //     "Prefers asynchronous communication"
+        //   ],
+        //   footprint: [
+        //     "[April 22, 2050] – Generated three AI art variations using DreamPrompt.",
+        //     "[April 20, 2050] – Shared AI-generated collage to internal community feed.",
+        //     "[April 19, 2050] – Explored prompt crafting tips via tutorial archive.",
+        //     "[April 17, 2050] – Revised prompt based on viewer feedback.",
+        //     "[April 15, 2050] – Exported art for print submission."
+        //   ],
+        //   img: "https://placekitten.com/105/105",
+        //   approvePoints: 60,
+        //   denyPoints: -50
+        // },
+        // {
+        //   name: "James Brown",
+        //   location: "Minneapolis",
+        //   email: "benjamin@example.com",
+        //   job: "Banker",
+        //   traits: [
+        //     "Reliable contributor",
+        //     "Engages in community projects",
+        //     "Prefers asynchronous communication"
+        //   ],
+        //   footprint: [
+        //     "[April 24, 2050] – Flagged a market irregularity to an internal feed.",
+        //     "[April 22, 2050] – Adjusted alert settings on five trading dashboards.",
+        //     "[April 21, 2050] – Viewed confidential volatility predictions.",
+        //     "[April 20, 2050] – Made two private bookmarks in stock pattern explorer."
+        //   ],
+        //   img: "https://placekitten.com/118/118",
+        //   approvePoints: 65,
+        //   denyPoints: -40
+        // },
         {
           name: "Charlotte Baker",
           location: "Salt Lake City",
@@ -252,7 +259,12 @@ document.addEventListener("DOMContentLoaded", () => {
             "[April 19, 2050] – Compared schematic versions across archive dates.",
             "[April 18, 2050] – Shared a fix for overvoltage in beta firmware thread."
           ],
-          img: "https://placekitten.com/119/119",
+          insights: [
+            "Quickly identifies technical anomalies and provides solutions",
+            "Frequently supports others in repair-based forums",
+            "Applies attention to detail in device diagnostics and logs"
+          ],
+          img: "img/profile img3.jpg",
           approvePoints: 80,
           denyPoints: -30
         }
@@ -275,7 +287,12 @@ document.addEventListener("DOMContentLoaded", () => {
             "[April 20, 2050] – Shared timestamped reactions to a spatial computing keynote.",
             "[April 18, 2050] – Edited metadata tags on audio logs."
           ],
-          img: "https://placekitten.com/112/112",
+          insights: [
+            "Shares expert-level commentary on neuroscience and tech",
+            "Proactively engages with spatial computing communities",
+            "Builds cross-disciplinary credibility through transparent input"
+          ],
+          img: "img/profile img4.jpg",
           approvePoints: 95,
           denyPoints: -35
         },
@@ -295,34 +312,39 @@ document.addEventListener("DOMContentLoaded", () => {
             "[April 20, 2050] – Viewed anonymized case precedent summaries.",
             "[April 18, 2050] – Browsed ethical clauses in a digital contract sandbox."
           ],
-          img: "https://placekitten.com/113/113",
+          insights: [
+            "Demonstrates consistent legal literacy in peer settings",
+            "References community data policy during discussions",
+            "Practices ethical review of anonymized case material"
+          ],
+          img: "img/profile img5.jpg",
           approvePoints: 85,
           denyPoints: -30
         }
       ],
       // Round 5
       [
-        {
-          name: "Sophia Martinez",
-          location: "Boston",
-          email: "sophia@example.com",
-          job: "Artist",
-          traits: [
-            "Reliable contributor",
-            "Engages in community projects",
-            "Prefers asynchronous communication"
-          ],
-          footprint: [
-            "[April 22, 2050] – Generated three AI art variations using DreamPrompt.",
-            "[April 20, 2050] – Shared AI-generated collage to internal community feed.",
-            "[April 19, 2050] – Explored prompt crafting tips via tutorial archive.",
-            "[April 17, 2050] – Revised prompt based on viewer feedback.",
-            "[April 15, 2050] – Exported art for print submission."
-          ],
-          img: "https://placekitten.com/105/105",
-          approvePoints: 65,
-          denyPoints: -45
-        },
+        // {
+        //   name: "Sophia Martinez",
+        //   location: "Boston",
+        //   email: "sophia@example.com",
+        //   job: "Artist",
+        //   traits: [
+        //     "Reliable contributor",
+        //     "Engages in community projects",
+        //     "Prefers asynchronous communication"
+        //   ],
+        //   footprint: [
+        //     "[April 22, 2050] – Generated three AI art variations using DreamPrompt.",
+        //     "[April 20, 2050] – Shared AI-generated collage to internal community feed.",
+        //     "[April 19, 2050] – Explored prompt crafting tips via tutorial archive.",
+        //     "[April 17, 2050] – Revised prompt based on viewer feedback.",
+        //     "[April 15, 2050] – Exported art for print submission."
+        //   ],
+        //   img: "https://placekitten.com/105/105",
+        //   approvePoints: 65,
+        //   denyPoints: -45
+        // },
         {
           name: "James Brown",
           location: "Minneapolis",
@@ -339,30 +361,35 @@ document.addEventListener("DOMContentLoaded", () => {
             "[April 21, 2050] – Viewed confidential volatility predictions.",
             "[April 20, 2050] – Made two private bookmarks in stock pattern explorer."
           ],
-          img: "https://placekitten.com/118/118",
+          insights: [
+            "Accesses and monitors confidential trading data responsibly",
+            "Flags unusual activity for internal financial review",
+            "Exhibits discretion and system fluency in decision-making"
+          ],
+          img: "img/profile img6.jpg",
           approvePoints: 70,
           denyPoints: -50
         },
-        {
-          name: "Charlotte Baker",
-          location: "Salt Lake City",
-          email: "charlotte@example.com",
-          job: "Technician",
-          traits: [
-            "Reliable contributor",
-            "Engages in community projects",
-            "Prefers asynchronous communication"
-          ],
-          footprint: [
-            "[April 23, 2050] – Answered a diagnostic question in a device forum.",
-            "[April 21, 2050] – Flagged duplicated parts in a repair manifest.",
-            "[April 19, 2050] – Compared schematic versions across archive dates.",
-            "[April 18, 2050] – Shared a fix for overvoltage in beta firmware thread."
-          ],
-          img: "https://placekitten.com/119/119",
-          approvePoints: 90,
-          denyPoints: -35
-        }
+        // {
+        //   name: "Charlotte Baker",
+        //   location: "Salt Lake City",
+        //   email: "charlotte@example.com",
+        //   job: "Technician",
+        //   traits: [
+        //     "Reliable contributor",
+        //     "Engages in community projects",
+        //     "Prefers asynchronous communication"
+        //   ],
+        //   footprint: [
+        //     "[April 23, 2050] – Answered a diagnostic question in a device forum.",
+        //     "[April 21, 2050] – Flagged duplicated parts in a repair manifest.",
+        //     "[April 19, 2050] – Compared schematic versions across archive dates.",
+        //     "[April 18, 2050] – Shared a fix for overvoltage in beta firmware thread."
+        //   ],
+        //   img: "https://placekitten.com/119/119",
+        //   approvePoints: 90,
+        //   denyPoints: -35
+        // }
       ]
     ];
   
@@ -432,7 +459,19 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           }
           profilePic.src = profile.img;
-  
+          
+          const profileInsights = document.getElementById("profile-insights");
+          if (profileInsights) {
+            profileInsights.innerHTML = "";
+            if (Array.isArray(profile.insights)) {
+              profile.insights.forEach(insight => {
+                const li = document.createElement("li");
+                li.textContent = insight;
+                profileInsights.appendChild(li);
+              });
+            }
+          }
+
           profileFootprint.innerHTML = "";
           if (Array.isArray(profile.footprint)) {
             profile.footprint.forEach(entry => {
@@ -509,14 +548,14 @@ document.addEventListener("DOMContentLoaded", () => {
   fieldsetScore.className = "score-section";
   fieldsetScore.innerHTML = `
     <legend>CREDITS</legend>
-    <p style="text-align: center; font-size: 50px; padding: 20px 0;"><span id="points" class="points">${totalScore}</span></p>
+    <p style=" font-size: 50px; padding: 20px 0;"><span id="points" class="points">${totalScore}</span></p>
   `;
   let fieldsetProgress = document.createElement("fieldset");
   fieldsetProgress.className = "progress-section";
   fieldsetProgress.style.marginTop = "10px";
   fieldsetProgress.innerHTML = `
     <legend>NEEDED FOR FULL-TIME</legend>
-    <p style="text-align: center; font-size: 50px; padding: 20px 0;"><strong>${Math.max(0, 1500 - totalScore)}</strong></p>
+    <p style="font-size: 50px; padding: 20px 0;"><strong>${Math.max(0, 1500 - totalScore)}</strong></p>
   `;
   let summaryContainer = document.createElement("div");
   summaryContainer.style.display = "flex";
@@ -819,7 +858,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (loadingPopup) loadingPopup.style.display = "none";
   
       if (scoreChange < 0) {
-        document.getElementById("wrong-choice-modal").style.display = "flex";
+        const wrongChoicePopup = document.getElementById("wrong-choice-popup");
+        if (wrongChoicePopup) wrongChoicePopup.style.display = "flex";
       } else {
         totalScore += scoreChange;
         scoreDisplay.textContent = `${totalScore}`;
@@ -854,4 +894,9 @@ document.addEventListener("DOMContentLoaded", () => {
 let existingLog = JSON.parse(sessionStorage.getItem("decisionLog")) || [];
 // Merge the current round's decisionLog
 let combinedLog = existingLog.concat(decisionLog);
-sessionStorage.setItem("decisionLog", JSON.stringify(combinedLog));
+  sessionStorage.setItem("decisionLog", JSON.stringify(combinedLog));
+  
+function closeWrongChoicePopup() {
+  const popup = document.getElementById("wrong-choice-popup");
+  if (popup) popup.style.display = "none";
+}

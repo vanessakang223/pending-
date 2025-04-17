@@ -348,18 +348,18 @@ button {
 
 .profile-info p {
     margin: 5px 0;
-    font-size: 12px;
+    font-size: 14px;
     line-height: normal;
     /* line-height: 12px; */
     /* width:35%; */
 }
 
 .profile-info {
-    width: 170px;
+    width: 190px;
     position: sticky;
     top: 0;
-    padding-right: 5px;
-    background-color: #C5C5C5; /* optional: ensure it doesn’t look transparent under scroll */
+    padding-right: 8px;
+    /* background-color: #C5C5C5; optional: ensure it doesn’t look transparent under scroll */
     z-index: 1; /* optional: make sure it stays above other content */
 }
 
@@ -441,7 +441,7 @@ ul li {
 legend{
     background-color: transparent;
     font-size: 12px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 fieldset{
@@ -451,7 +451,6 @@ fieldset{
     padding-right:8px;   
     /* text-align: center; */
      /* padding-left: 8px; */
-     width: 100%;
 }
 
 .welcome-popup {
@@ -625,11 +624,6 @@ button.next-btn{
   profile-summary{
     display: flex;
   }
-
-.loc{
-font-size: larger;
-  }
-
 /* 
   #profile-footprint {
     border: 1px dashed red;
@@ -645,7 +639,7 @@ font-size: larger;
   }
 
   li{
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.7;
     /* margin-bottom: 4px; */
     border-bottom: 0.7px dashed #999;
@@ -664,8 +658,6 @@ font-size: larger;
     text-align: center;
     padding-right: 8px;
   }
-  
-
 
   .modal-overlay {
     position: fixed;
@@ -977,9 +969,13 @@ ul.tree-view {
     margin: 3px 0;
   }
 
-  .right-info{
-    display: block;
-  }
+  .right-info {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 
   .glow {
     animation: pulseGlow 1.5s infinite;

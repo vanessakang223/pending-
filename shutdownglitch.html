@@ -5,17 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>System Failure</title>
 
-    <!-- Windows 98 CSS for styling -->
-    <link rel="stylesheet" href="https://unpkg.com/98.css">
-
     <style>
         /* Full-screen classic Windows 95 blue */
         body {
             margin: 0;
             padding: 0;
-            background-color: #0000AA; /* Classic Windows 95 BSOD */
+            background-color: blue;
             color: white;
-            font-family: "Pixelated MS Sans Serif", Arial;
+            font-family: monospace;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -25,69 +22,17 @@
             overflow: hidden;
         }
 
-        /* Glitch effect applied before crash */
-        .glitch {
-            font-size: 50px;
-            font-weight: bold;
-            text-transform: uppercase;
-            position: absolute;
-            animation: glitchText 0.2s infinite;
-        }
-
-        /* Glitchy movement */
-        @keyframes glitchText {
-            0% { transform: translate(2px, 0); color: red; }
-            25% { transform: translate(-2px, 2px); color: cyan; }
-            50% { transform: translate(2px, -2px); color: lime; }
-            75% { transform: translate(-2px, 0px); color: yellow; }
-            100% { transform: translate(0px, 0px); color: white; }
-        }
-
-        /* Glitch flicker effect */
-        @keyframes glitchFlickerCombo {
-            0% {
-              transform: scale(1, 0.8) translate3d(0, 0, 0);
-              filter: brightness(30);
-              opacity: 1;
-            }
-            3.5% {
-              transform: scale(1, 0.8) translate3d(0, 100%, 0);
-            }
-            3.6% {
-              transform: scale(1, 0.8) translate3d(0, -100%, 0);
-              opacity: 1;
-            }
-            9% {
-              transform: scale(1.3, 0.6) translate3d(0, 100%, 0);
-              filter: brightness(30);
-              opacity: 0;
-            }
-            11% {
-              transform: scale(1, 1) translate3d(0, 0, 0);
-              filter: contrast(0) brightness(0);
-              opacity: 0;
-            }
-            100% {
-              transform: scale(1, 1) translate3d(0, 0, 0);
-              filter: contrast(1) brightness(1.2) saturate(1.3);
-              opacity: 1;
-            }
-        }
-
-        .glitch-flicker {
-            animation: glitchFlickerCombo 0.1s steps(2, start) infinite;
-        }
-
         /* BSOD crash screen */
         .crash-screen {
-            width: 100%;
-            height: 100%;
-            background-color: #0000AA;
+            width: 90%;
+            max-width: 600px;
+            background-color: black;
             color: white;
-            padding: 20px;
-            text-align: left;
-            font-size: 16px;
-            font-family: "Pixelated MS Sans Serif", Arial;
+            padding: 40px;
+            text-align: center;
+            font-size: 18px;
+            font-family: monospace;
+            border: 1px solid white;
         }
 
         /* Blinking cursor effect */
@@ -111,33 +56,21 @@
 </head>
 <body>
 
-    <!-- Glitching text before crash
-    <div class="glitch" id="glitchText">System Failure...</div> -->
-
     <!-- Windows 95 BSOD Crash Screen -->
     <div class="contain-all">
     <div class="crash-screen" id="crashScreen">
         <p>*** FATAL EXCEPTION 0E ***</p>
-        <p>A fatal error has occurred. The current session has been terminated.</p>
-        <p>Press any key to restart the system.</p>
-        <p>If this error persists, please contact your system administrator.</p>
+        <p>You have not received a full-time role. You have been terminated.</p>
+        <!-- <p>Press any key to restart the system.</p> -->
         <p>*** STOP: 0x0000DEAD ***</p>
-        <span class="cursor"></span>
+        <button onclick="window.location.href='index.html'" style="margin-top: 20px; padding: 10px 20px; font-size: 16px; font-family: monospace;">RESTART</button>
+        <!-- <span class="cursor"></span> -->
     </div>
     </div>
 
     <script>
-        // Simulate glitch effect before crashing
-        setTimeout(() => {
-            document.getElementById("glitchText").style.display = "none"; // Hide glitch text
-            // document.getElementById("staticEffect").style.opacity = "1"; // Show static effect
-        }, 1000); // 3 seconds of glitch
-
         // After the static effect, show the crash screen
-        // setTimeout(() => {
-        //     document.getElementById("staticEffect").style.display = "none"; // Hide static
-            document.getElementById("crashScreen").style.display = "block"; // Show crash screen
-        // }, 1000); // 5 seconds of static before crash
+        document.getElementById("crashScreen").style.display = "block"; // Show crash screen
 
         // Simulate system restart on key press
         document.addEventListener("keydown", () => {
@@ -149,7 +82,7 @@
         if (day === "5") {
             setTimeout(() => {
                 window.location.href = "shutdownglitch.html";
-            }, 2000); // Delay before redirecting, adjust if needed
+            }, 4000); // Delay before redirecting, adjust if needed
         }
     </script>
 

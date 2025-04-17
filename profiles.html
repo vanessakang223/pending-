@@ -110,7 +110,7 @@
             <div class="button-row">
                 <div class="long-button window"></div>
             </div>
-            <button class="question-button">X</button>
+            <button class="question-button"></button>
           
         </div>
 
@@ -131,17 +131,21 @@
                     </div>
 
                 <div class="right-info">
-                    <fieldset class="traits-fieldset full-width-top">
+        <fieldset class="traits-fieldset full-width-top">
                         <legend>TRAITS</legend>
                         <ul id="profile-traits"></ul>
+                    </fieldset>
+                    <fieldset class="insights-fieldset full-width-top">
+                        <legend>INSIGHTS</legend>
+                        <ul id="profile-insights"></ul>
                     </fieldset>
                     <fieldset class="footprint-fieldset full-width-top">
                         <legend>DIGITAL FOOTPRINT</legend>
                         <ul id="profile-footprint"></ul>
                     </fieldset>
-                    <fieldset class="attachments-fieldset">
+                    <!-- <fieldset class="attachments-fieldset">
                         <legend>ATTACHMENTS</legend>
-                        <ul id="profile-attachments"></ul>
+                        <ul id="profile-attachments"></ul> -->
                     </fieldset>
                 </div>
             </div>
@@ -186,7 +190,8 @@
         <div class="right-section">
             <!-- <input type="text" class="points-input input" value="0/1500" readonly /> -->
         </div>
-        <button disabled>Monday 05-01-2050</button>
+        <button disabled></button>
+        <!-- Monday 05-01-2050 -->
     </div>
 
 <!-- Black overlay -->
@@ -245,20 +250,20 @@
             }
         });
 
-        const observer = new MutationObserver(() => {
-            const nameEl = document.getElementById("profile-name");
-            if (nameEl && nameEl.textContent.trim() === "James Brown") {
-                document.body.classList.add("glitch-flicker");
+        document.addEventListener("DOMContentLoaded", () => {
+            const currentRound = parseInt(sessionStorage.getItem("round")) || 0;
+
+            // Trigger glitch and redirect at the end of Day 4
+            if (currentRound === 4) {
                 setTimeout(() => {
-                    window.location.href = "shutdownglitch.html";
-                }, 4000);
+                    document.body.classList.add("glitch-flicker");
+                    setTimeout(() => {
+                        document.body.classList.remove("glitch-flicker");
+                        window.location.href = "shutdownglitch.html";
+                    }, 500);
+                }, 2500);
             }
         });
-
-        const profileNameEl = document.getElementById("profile-name");
-        if (profileNameEl) {
-            observer.observe(profileNameEl, { childList: true, subtree: true });
-        }
 
         document.addEventListener("DOMContentLoaded", () => {
             requestAnimationFrame(() => {
