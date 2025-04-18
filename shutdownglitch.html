@@ -63,7 +63,7 @@
         <p>You have not received a full-time role. You have been terminated.</p>
         <!-- <p>Press any key to restart the system.</p> -->
         <p>*** STOP: 0x0000DEAD ***</p>
-        <button onclick="window.location.href='index.html'" style="margin-top: 20px; padding: 10px 20px; font-size: 16px; font-family: monospace;">RESTART</button>
+        <button onclick="restartFlow()" style="margin-top: 20px; padding: 10px 20px; font-size: 16px; font-family: monospace;">RESTART</button>
         <!-- <span class="cursor"></span> -->
     </div>
     </div>
@@ -74,7 +74,7 @@
 
         // Simulate system restart on key press
         document.addEventListener("keydown", () => {
-            window.location.reload();
+            restartFlow();
         });
 
         // Redirect to shutdown glitch page on Day 5
@@ -83,6 +83,11 @@
             setTimeout(() => {
                 window.location.href = "shutdownglitch.html";
             }, 4000); // Delay before redirecting, adjust if needed
+        }
+
+        function restartFlow() {
+            sessionStorage.clear(); // Clear saved game/session state
+            window.location.href = "index.html"; // Go to the beginning
         }
     </script>
 
