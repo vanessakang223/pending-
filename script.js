@@ -70,15 +70,13 @@ document.addEventListener("DOMContentLoaded", () => {
           email: "helen@sensige.com",
           job: "digital product designer",
           traits: [
-            "Closely follows developments in blockchain applications for agriculture and logistics",
             "Demonstrates strong attention to academic responsibilities and deadlines",
             "Actively engages with sustainable design and interactive installations"
           ],
           footprint: [
             "[April 22, 2050] – Saved an article: “How Blockchain Can Improve Supply Chains for Fresh Produce.”",
             "[April 15, 2050] – Visited Parsons’ Graduation Requirements Portal to confirm final submissions for senior project clearance.",
-            "[April 3, 2050] – Reacted with a ‘heart’ emoji to a post about an AI-powered produce freshness scanner.",
-            "[March 28, 2050] – Shared highlights from an interactive design installation on sustainable farming solutions."
+            "[April 3, 2050] – Reacted with a ‘heart’ emoji to a post about a produce freshness scanner.",
           ],
           insights: [
             "Meets institutional deadlines and requirements proactively",
@@ -182,7 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
           job: "Analyst",
           traits: [
             "Participates in institutional surveys and feedback collection tools",
-            "Accesses and interprets analytics dashboards for performance tracking",
             "Volunteers for optional behavioral research with high engagement"
           ],
           footprint: [
@@ -249,19 +246,18 @@ document.addEventListener("DOMContentLoaded", () => {
           email: "charlotte@example.com",
           job: "Technician",
           traits: [
-            "Reliable contributor",
-            "Engages in community projects",
+            // "Reliable contributor",
+            // "Engages in community projects",
             "Prefers asynchronous communication"
           ],
           footprint: [
-            "[April 23, 2050] – Answered a diagnostic question in a device forum.",
+            // "[April 23, 2050] – Answered a diagnostic question in a device forum.",
             "[April 21, 2050] – Flagged duplicated parts in a repair manifest.",
-            "[April 19, 2050] – Compared schematic versions across archive dates.",
-            "[April 18, 2050] – Shared a fix for overvoltage in beta firmware thread."
+    
           ],
           insights: [
-            "Quickly identifies technical anomalies and provides solutions",
-            "Frequently supports others in repair-based forums",
+            // "Quickly identifies technical anomalies and provides solutions",
+            // "Frequently supports others in repair-based forums",
             "Applies attention to detail in device diagnostics and logs"
           ],
           img: "img/profile img3.jpg",
@@ -271,38 +267,37 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
       // Round 4
       [
-        {
-          name: "James Wilson",
-          location: "Dallas",
-          email: "james@example.com",
-          job: "Scientist",
-          traits: [
-            "Reliable contributor",
-            "Engages in community projects",
-            "Prefers asynchronous communication"
-          ],
-          footprint: [
-            "[April 23, 2050] – Uploaded a podcast episode on wearable neural tech.",
-            "[April 22, 2050] – Commented on a startup’s open neurology protocol.",
-            "[April 20, 2050] – Shared timestamped reactions to a spatial computing keynote.",
-            "[April 18, 2050] – Edited metadata tags on audio logs."
-          ],
-          insights: [
-            "Shares expert-level commentary on neuroscience and tech",
-            "Proactively engages with spatial computing communities",
-            "Builds cross-disciplinary credibility through transparent input"
-          ],
-          img: "img/profile img4.jpg",
-          approvePoints: 95,
-          denyPoints: -35
-        },
+        // {
+        //   name: "James Wilson",
+        //   location: "Dallas",
+        //   email: "james@example.com",
+        //   job: "Scientist",
+        //   traits: [
+        //     "Reliable contributor",
+        //     "Engages in community projects",
+        //     "Prefers asynchronous communication"
+        //   ],
+        //   footprint: [
+        //     "[April 23, 2050] – Uploaded a podcast episode on wearable neural tech.",
+        //     "[April 22, 2050] – Commented on a startup’s open neurology protocol.",
+        //     "[April 20, 2050] – Shared timestamped reactions to a spatial computing keynote.",
+        //     "[April 18, 2050] – Edited metadata tags on audio logs."
+        //   ],
+        //   insights: [
+        //     "Shares expert-level commentary on neuroscience and tech",
+        //     "Proactively engages with spatial computing communities",
+        //     "Builds cross-disciplinary credibility through transparent input"
+        //   ],
+        //   img: "img/profile img4.jpg",
+        //   approvePoints: 95,
+        //   denyPoints: -35
+        // },
         {
           name: "Emma Hall",
           location: "Las Vegas",
           email: "emma@example.com",
           job: "Lawyer",
           traits: [
-            "Reliable contributor",
             "Engages in community projects",
             "Prefers asynchronous communication"
           ],
@@ -310,7 +305,6 @@ document.addEventListener("DOMContentLoaded", () => {
             "[April 24, 2050] – Replied to a flagged post with peer-to-peer policy citations.",
             "[April 22, 2050] – Cross-checked terms in a new community data agreement.",
             "[April 20, 2050] – Viewed anonymized case precedent summaries.",
-            "[April 18, 2050] – Browsed ethical clauses in a digital contract sandbox."
           ],
           insights: [
             "Demonstrates consistent legal literacy in peer settings",
